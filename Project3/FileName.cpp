@@ -10,7 +10,7 @@ double f_proizv(double x) {
     return term1 + term2;
 }
 double g(double x) {
-    return cos(sqrt(1-0.3*x*x*x));
+    return cos(sqrt(1-0.3*pow(x,3)));
 }
 double newton_method(double e = 1e-6, int max_iter = 100) {
     double x = 0.99;
@@ -57,10 +57,8 @@ double halfdel_method(double a, double b, double e = 1e-6) {
     }
 }
 int main() {
-    double root_newton = newton_method();
-    cout << "Корень уравнения методом Ньютона: " << root_newton << endl;
-    double root_iteration = iteration_method();
-    cout << "Корень уравнения методом итераций: " << root_iteration << endl;
+    cout << "Корень уравнения методом Ньютона: " << newton_method() << endl;
+    cout << "Корень уравнения методом итераций: " << iteration_method() << endl;
     cout << "Корень уравнения методом половинного деления: " << halfdel_method(0,1) << endl;
     system("pause");
     return 0;
